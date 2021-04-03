@@ -4,10 +4,18 @@ import yaml from 'js-yaml'
 import {mapValues} from 'lodash-es'
 
 export async function parse() {
-  const config = yaml.load(await fs.readFile(path.resolve('.env.yml')))
-  return mapValues(config, (value) =>
-    typeof value === 'string' ? value : JSON.stringify(value)
-  )
+  try {
+    const config = yaml.load(await fs.readFile(path.resolve('.env.yml')))
+    return mapValues(config, (value) =>
+      typeof value === 'string' ? value : JSON.stringify(value)
+    )
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      return {}
+    }
+
+    throw error
+  }
 }
 
 export async function set() {

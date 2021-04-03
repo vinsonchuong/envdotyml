@@ -54,3 +54,6 @@ OBJECT:
 ```
 
 Strings are left as is. More complex values are converted to JSON strings.
+
+If `.env.yml` does not exist, `parse` will return an empty object, and `set`
+will do nothing.
