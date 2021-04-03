@@ -1,7 +1,7 @@
 {
   "name": "envdotyml",
   "version": "0.0.0",
-  "description": "An awesome package",
+  "description": "Load environment variables from a .env.yml file",
   "keywords": [],
   "homepage": "https://github.com/vinsonchuong/envdotyml",
   "bugs": "https://github.com/vinsonchuong/envdotyml/issues",
@@ -13,6 +13,10 @@
     "release": "semantic-release"
   },
   "type": "module",
+  "dependencies": {
+    "js-yaml": "^4.0.0",
+    "lodash-es": "^4.17.21"
+  },
   "devDependencies": {
     "ava": "^3.15.0",
     "semantic-release": "^17.4.2",
@@ -27,7 +31,10 @@
     "semicolon": false,
     "rules": {
       "import/no-anonymous-default-export": "off"
-    }
+    },
+    "ignores": [
+      "set.js"
+    ]
   },
   "release": {
     "branches": [
