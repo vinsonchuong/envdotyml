@@ -1,5 +1,5 @@
+import path from 'node:path'
 import test from 'ava'
-import path from 'path'
 import {parse} from './index.js'
 
 test.serial('parsing .env.yml', async (t) => {
